@@ -1,0 +1,35 @@
+
+.titulo {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 20px;
+  font-size: 25px;
+  background: #000000;
+  color: #ffffff;
+
+}
+.contenedor{
+  background-color: #2f4547; 
+  height: 100vh;
+}
+
+.carta{
+  position: relative;
+  width: 150px;
+  left: 100px;
+  margin-left: -75px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+h1 {
+  font-size: 40px;
+  color: #ffffff;
+}
+
+#computadora-cartas, #jugador-cartas {
+  height: 240px;
+  display: flex;
+  justify-content: space-between;
+}
+
