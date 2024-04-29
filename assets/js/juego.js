@@ -25,15 +25,24 @@ crearDeck();
 // pedir carta 
 
 const pedirCarta = () => {
-
   if (deck.length === 0) {
     throw 'No hay cartas en el deck';
   }
-
   const carta = deck.pop();
   console.log(deck);
   console.log(carta);
   return carta;
 }
-
 pedirCarta();
+
+// valor de la carta
+
+const valorCarta = (carta) => {
+  const valor = carta.substring(0, carta.length - 1);
+  return (isNaN(valor)) ?
+    (valor === 'A') ? 11 : 10
+    : valor * 1;
+};
+
+const valor = valorCarta(pedirCarta());
+console.log({ valor });
