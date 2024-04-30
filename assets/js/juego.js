@@ -1,6 +1,16 @@
 let deck = [];
 const tipos = ["C", "D", "H", "S"];
 const especiales = ["A", "J", "Q", "K"];
+let puntoJugador = 0;
+let puntoComputadora = 0;
+
+// referencia ddel html 
+
+const btnPedir = document.querySelector('#btnPedir');
+const btnDetener = document.querySelector('#btnDetener');
+const btnNuevo = document.querySelector('#btnNuevo');
+const puntosHtml = document.querySelectorAll('small');
+
 
 const crearDeck = () => {
   for (let i = 2; i <= 10; i++) {
@@ -14,9 +24,7 @@ const crearDeck = () => {
       deck.push(esp + tipo);
     }
   }
-  console.log(deck);
   deck = _.shuffle(deck);
-  console.log(deck);
   return deck;
 }
 
@@ -29,8 +37,6 @@ const pedirCarta = () => {
     throw 'No hay cartas en el deck';
   }
   const carta = deck.pop();
-  console.log(deck);
-  console.log(carta);
   return carta;
 }
 pedirCarta();
@@ -43,6 +49,39 @@ const valorCarta = (carta) => {
     (valor === 'A') ? 11 : 10
     : valor * 1;
 };
-
 const valor = valorCarta(pedirCarta());
-console.log({ valor });
+
+// evento click 
+
+btnPedir.addEventListener('click', () => {
+  const carta = pedirCarta();
+  puntoJugador = puntoJugador + valorCarta(carta);
+  puntosHTML[0].innerText = puntoJugador;
+  console.log(puntoJugador);
+
+
+
+})
+
+
+
+
+
+//   const valorCarta = valorCarta(carta);
+//   puntosJugadores[turno] = puntosJugadores[turno] + valorCarta;
+//   puntosHTML[turno].innerText = puntosJugadores[turno];
+//   crearCarta(carta, turno);
+//   if (puntosJugadores[turno] > 21) {
+//     console.warn('Lo siento mucho, perdiste');
+//     btnPedir.disabled = true;
+//     btnDetener.disabled = true;
+//     turnoSiguiente();
+//   } else if (puntosJugadores[turno] === 21) {
+//     console.warn('21, genial!');
+//     btnPedir.disabled = true;
+//     btnDetener.disabled = true;
+//     turnoSiguiente();
+//   }
+// });
+
+
