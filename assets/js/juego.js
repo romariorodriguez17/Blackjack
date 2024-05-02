@@ -72,8 +72,12 @@ btnPedir.addEventListener('click', () => {
   if (puntoJugador > 21) {
     console.warn('Perdiste');
     btnPedir.disabled = true;
-
+  } else if (puntoJugador === 21) {
+    console.warn('Ganaste');
+    btnPedir.disabled = true;
   }
+
+
 });
 
 
