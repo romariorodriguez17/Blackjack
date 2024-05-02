@@ -30,6 +30,6 @@ h1 {
 #computadora-cartas, #jugador-cartas {
   height: 240px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
