@@ -10,6 +10,8 @@ const btnPedir = document.querySelector('#btnPedir');
 const btnDetener = document.querySelector('#btnDetener');
 const btnNuevo = document.querySelector('#btnNuevo');
 const puntosHtml = document.querySelectorAll('small');
+const divCartasJugador = document.querySelector('#jugador-cartas');
+const divCartasComputadora = document.querySelector('#Computadora-cartas');
 
 
 const crearDeck = () => {
@@ -52,36 +54,33 @@ const valorCarta = (carta) => {
 const valor = valorCarta(pedirCarta());
 
 // evento click 
-
 btnPedir.addEventListener('click', () => {
   const carta = pedirCarta();
   puntoJugador = puntoJugador + valorCarta(carta);
-  puntosHTML[0].innerText = puntoJugador;
-  console.log(puntoJugador);
+  puntosHtml[0].innerText = puntoJugador;
+
+  // logica de pedir carta 
+  const imgCarta = document.createElement('img');
+  imgCarta.src = `assets/cartas/cartas/${carta}.png`;
+  imgCarta.classList.add('carta');
+  divCartasJugador.append(imgCarta);
 
 
 
-})
+  //logica para los 21 puntos 
+  // condicion hasta 21 puntos 
+  if (puntoJugador > 21) {
+    console.warn('Perdiste');
+    btnPedir.disabled = true;
+
+  }
+});
 
 
 
 
 
-//   const valorCarta = valorCarta(carta);
-//   puntosJugadores[turno] = puntosJugadores[turno] + valorCarta;
-//   puntosHTML[turno].innerText = puntosJugadores[turno];
-//   crearCarta(carta, turno);
-//   if (puntosJugadores[turno] > 21) {
-//     console.warn('Lo siento mucho, perdiste');
-//     btnPedir.disabled = true;
-//     btnDetener.disabled = true;
-//     turnoSiguiente();
-//   } else if (puntosJugadores[turno] === 21) {
-//     console.warn('21, genial!');
-//     btnPedir.disabled = true;
-//     btnDetener.disabled = true;
-//     turnoSiguiente();
-//   }
-// });
+
+
 
 
